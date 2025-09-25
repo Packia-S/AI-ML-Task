@@ -1,13 +1,13 @@
 import streamlit as st 
 from PIL import Image
-from rag import get_answer
-
+# from markrag import get_answer
+from service import unified_answer
 
 
 
 def main() -> None:
     
-    icon = Image.open("D:/VRNeXGen/project/logo.png")
+    icon = Image.open("D:/VRNeXGen/langchain/project_vrnexgen/logo.png")
 
     st.set_page_config(
         page_title="VRNeXGen",
@@ -33,7 +33,7 @@ def main() -> None:
         unsafe_allow_html=True
     )
     
-    st.sidebar.write("All chats")
+    # st.sidebar.write("All chats")
     
     
     # Display chat history
@@ -50,8 +50,10 @@ def main() -> None:
     if user_input:
         st.chat_message("user").write(user_input)
         st.session_state["chat_history"].append({"role": "user", "content": user_input})
+        
         # Here you would typically call your chatbot API or function
-        response = get_answer(user_input)
+        response = unified_answer(user_input)
+        
         st.session_state["chat_history"].append({"role": "assistant", "content": response})
         if response:
             st.chat_message("assistant").write(response)
