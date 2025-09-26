@@ -180,7 +180,7 @@ def schedule_appointment(name, email, phone, date_str, time_str):
     """
     service = get_calendar_service()
     start_dt = parse_datetime(date_str, time_str)
-    end_dt = start_dt + dt.timedelta(minutes=30)
+    end_dt = start_dt + dt.timedelta(minutes = 30)
     
     event = {
         "summary": f"Appointment with {name}",

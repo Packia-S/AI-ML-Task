@@ -17,6 +17,8 @@ def main() -> None:
         page_icon = icon,
         layout = "centered"
     )
+    
+
 
     # intialize the session state for chat history
     if "chat_history" not in st.session_state:
@@ -36,7 +38,17 @@ def main() -> None:
         unsafe_allow_html=True
     )
     
-    # st.sidebar.write("All chats")
+    st.sidebar.write(
+    """
+        **Vision**
+        * To establish ourselves as a leading provider of consulting services in the Digital Transformation space.
+        * To seamlessly connect legacy systems with next-generation technologies and drive agility and innovation.
+        
+        **Mission**
+        * To lead organizations through successful digital transformation journeys.
+        * To integrate legacy platforms with modern digital tools for agility and adoption.    
+    """
+    )
     
     
     # Display chat history
